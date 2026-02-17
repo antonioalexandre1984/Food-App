@@ -86,7 +86,7 @@ export const FormularioPratos = () => {
       dadosPrato.append('imagem', imagem)
     }
 
-    // --- ADICIONE ESTE CONSOLE ---
+    // --- Console de consulta dos dados enviados ---
     console.log("Dados que serão enviados:");
     dadosPrato.forEach((valor, chave) => {
       console.log(`${chave}:`, valor);
