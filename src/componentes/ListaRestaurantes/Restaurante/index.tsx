@@ -19,7 +19,7 @@ export const Restaurante = ({ restaurante }: RestauranteProps) => {
     .catch(err => {
       console.log(err);
     })
-  }, [ restaurante ]);
+  }, [ restaurante.id ]);
 
 
   return (<section className={estilos.Restaurante}>
