@@ -64,7 +64,7 @@ const NavBar = () => {
             to="/"
             sx={{ mr: 4, display: { xs: 'none', md: 'flex' }, fontWeight: 900, color: 'inherit', textDecoration: 'none' }}
           >
-            iFood API
+            iFood DF
           </Typography>
 
           {/* MOBILE MENU */}

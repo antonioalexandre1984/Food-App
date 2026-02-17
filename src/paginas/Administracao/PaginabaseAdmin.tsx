@@ -10,8 +10,9 @@ import {
     Paper, Toolbar, Typography
 } from "@mui/material";
 import { useState } from 'react';
-import { Link as RouterLink, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, Link as RouterLink, useLocation } from 'react-router-dom';
 
+import { Link } from 'react-router-dom';
 const PaginaBaseAdmin = () => {
     const location = useLocation();
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -60,6 +61,17 @@ const PaginaBaseAdmin = () => {
                     <Toolbar sx={{ justifyContent: 'space-between' }}>
                         {/* Logo / Título */}
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                      {/* LOGO */}
+          <Typography
+            variant="h6"
+            noWrap
+            component={Link}
+            to="/"
+            sx={{ mr: 4, display: { xs: 'none', md: 'flex' }, fontWeight: 900, color: 'inherit', textDecoration: 'none' }}
+          >
+            iFood DF
+          </Typography>
+          
                             <Typography
                                 variant="h6"
                                 component={RouterLink}

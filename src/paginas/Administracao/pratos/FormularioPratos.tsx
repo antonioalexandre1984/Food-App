@@ -77,15 +77,6 @@ export const FormularioPratos = () => {
   const aoSubmeterForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    /*   const dadosPrato = {
-      nome: nomePrato,
-      descricao: descricao,
-      tag: tag,
-      restaurante: restaurante,
-      imagem: `pratosCardapio/${imagem}`
-
-    } */
-
     const dadosPrato = new FormData()
     dadosPrato.append('nome', nomePrato)
     dadosPrato.append('descricao', descricao)
@@ -95,18 +86,17 @@ export const FormularioPratos = () => {
       dadosPrato.append('imagem', imagem)
     }
 
+    // --- ADICIONE ESTE CONSOLE ---
+    console.log("Dados que serão enviados:");
+    dadosPrato.forEach((valor, chave) => {
+      console.log(`${chave}:`, valor);
+    });
+
     const promise = paramarPrato.id
       ? http.put(`/pratos/${paramarPrato.id}/`, dadosPrato)
       : http.post(`/pratos/`, dadosPrato)
 
-    /*     const promise = paramarPrato.id
-      ? http.put(`/pratos/${paramarPrato.id}/`, {
-          nome: nomePrato,
-        })
-      : http.post(`/pratos/`, {
-          nome: nomePrato,
-        })
-  */
+   
     const msgSucesso = paramarPrato.id
       ? 'Prato atualizado com sucesso! 🚀'
       : 'Prato cadastrado com sucesso! ✨'
@@ -114,6 +104,7 @@ export const FormularioPratos = () => {
     promise
       .then(() => {
         toast.success(msgSucesso)
+        console.log(msgSucesso)
         navigate('/admin/pratos')
       })
       .catch((err) => {
